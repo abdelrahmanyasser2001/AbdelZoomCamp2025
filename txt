@@ -80,3 +80,24 @@ docker run -it \
   --url https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2021-01.parquet
 
   
+
+  docker run -it \
+  --network=abdelzoomcamp2025_default \
+  taxi_ingest:v002 \
+  --user root \
+  --password root \
+  --host postgres \
+  --port 5432 \
+  --db temp_db \
+  --table_name 1902 \
+  --url https://www.ncei.noaa.gov/data/global-hourly/archive/csv/1902.tar.gz
+
+
+  python ingest_csv_data.py \
+  --user root \
+  --password root \
+  --host postgres \
+  --port 5432 \
+  --db temp_db \
+  --table_name 1902 \
+  --url https://www.ncei.noaa.gov/data/global-hourly/archive/csv/1902.tar.gz
