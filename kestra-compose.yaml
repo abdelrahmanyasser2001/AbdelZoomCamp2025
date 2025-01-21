@@ -5,14 +5,24 @@ volumes:
     driver: local
 
 services:
+  pgadmin:
+    image: "dpage/pgadmin4"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com 
+      - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - "80:80"
+
   postgres:
     image: postgres
     volumes:
       - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_DB: kestra
-      POSTGRES_USER: kestra
-      POSTGRES_PASSWORD: k3str4
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
       interval: 30s
@@ -37,8 +47,8 @@ services:
           postgres:
             url: jdbc:postgresql://postgres:5432/kestra
             driverClassName: org.postgresql.Driver
-            username: kestra
-            password: k3str4
+            username: root
+            password: root
         kestra:
           server:
             basicAuth:

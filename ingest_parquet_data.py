@@ -28,7 +28,7 @@ def main(params):
 
     df.head(0).to_sql(name=table_name,con=engine,if_exists='replace')
 
-    df.to_sql(name='yellow_taxi_data',con=engine,if_exists='append')
+    df.to_sql(name=table_name,con=engine,if_exists='append')
     
     print('successful iteration')
 

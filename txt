@@ -57,3 +57,25 @@ docker run -it \
 pgcli -h localhost -p 5432 -u root -d ny_taxi
 
 
+
+docker run --pull=always --rm -it -p 8090:8080 --user=root \
+  -v //./pipe/docker_engine://./pipe/docker_engine \
+  -v /tmp:/tmp \
+  kestra/kestra:latest server local
+
+
+docker-compose -f kestra-compose.yaml up
+
+
+
+docker run -it \
+  --network=abdelzoomcamp2025_default \
+  taxi_ingest:v001 \
+  --user root \
+  --password root \
+  --host postgres \
+  --port 5432 \
+  --db ny_taxi \
+  --table_name yellow_taxi_trips \
+  --url https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2021-01.parquet
+
