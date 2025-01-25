@@ -2,10 +2,13 @@
 
 ## Question 1: Understanding Docker First Run
 
+
 **Command:**
 ```bash
 docker run -it python:3.12.8 /bin/bash
+pip --version
 ```
+
 
 **Answer:**
 ```bash
@@ -140,4 +143,12 @@ LIMIT 1;
 3. Remove all resources managed by Terraform:
    ```bash
    terraform destroy
+
+
+**Command:**
+```bash
+docker run -it python:3.12.8 /bin/bash
+pip --version
+```
+
    
