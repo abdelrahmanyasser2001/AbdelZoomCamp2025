@@ -95,10 +95,7 @@ LIMIT 3;
 
 **Answer:**
 ```plaintext
-Top 3 Pickup Zones:
-1. [Zone 1]
-2. [Zone 2]
-3. [Zone 3]
+East Harlem North, East Harlem South, Morningside Heights
 ```
 
 ---
