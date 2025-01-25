@@ -144,11 +144,9 @@ LIMIT 1;
    ```bash
    terraform destroy
 
-
-**Command:**
-```bash
-docker run -it python:3.12.8 /bin/bash
-pip --version
+**Answer:**
+```plaintext
+terraform init, terraform apply -auto-approve, terraform destroy
 ```
 
    
